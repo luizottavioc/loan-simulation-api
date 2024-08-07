@@ -1,13 +1,14 @@
+import { DataTypes } from 'sequelize';
 import { Table, Column, Model } from 'sequelize-typescript';
 
 @Table
 export class UF extends Model {
-  @Column
+  @Column({ unique: true })
   name: string;
 
-  @Column
+  @Column({ unique: true })
   acronym: string;
 
-  @Column
+  @Column({ type: DataTypes.FLOAT })
   interest_rate: number;
 }
