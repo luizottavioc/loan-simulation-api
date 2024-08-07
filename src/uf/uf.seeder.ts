@@ -11,22 +11,22 @@ export class UFSeeder implements OnSeederInit {
       {
         name: 'Minas Gerais',
         acronym: 'MG',
-        interest_rate: 0.01,
+        interestRate: 0.01,
       },
       {
         name: 'São Paulo',
         acronym: 'SP',
-        interest_rate: 0.008,
+        interestRate: 0.008,
       },
       {
         name: 'Rio de Janeiro',
         acronym: 'RJ',
-        interest_rate: 0.009,
+        interestRate: 0.009,
       },
       {
         name: 'Espírito Santo',
         acronym: 'ES',
-        interest_rate: 0.0111,
+        interestRate: 0.0111,
       },
     ];
     return data;

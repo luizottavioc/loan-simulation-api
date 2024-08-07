@@ -10,5 +10,5 @@ export class UF extends Model {
   acronym: string;
 
   @Column({ type: DataTypes.FLOAT })
-  interest_rate: number;
+  interestRate: number;
 }
