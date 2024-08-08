@@ -2,6 +2,8 @@ import dotenv from 'dotenv';
 import { SequelizeModuleOptions } from '@nestjs/sequelize';
 
 import { UF } from 'src/uf/uf.model';
+import { Loan } from 'src/loan/loan.model';
+import { Installment } from 'src/installment/installment.model';
 
 dotenv.config();
 
@@ -14,7 +16,7 @@ const config: SequelizeModuleOptions = {
   database: process.env.POSTGRES_DB,
   autoLoadModels: true,
   synchronize: true,
-  models: [UF],
+  models: [UF, Loan, Installment],
 };
 
 export default config;
