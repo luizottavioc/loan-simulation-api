@@ -1,6 +1,14 @@
 import { DataTypes } from 'sequelize';
-import { Table, Column, Model } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  ForeignKey,
+  BelongsTo,
+  HasMany,
+} from 'sequelize-typescript';
 import { UF } from 'database/models/uf.model';
+import { Installment } from './installment.model';
 
 @Table
 export class Loan extends Model {
@@ -10,6 +18,7 @@ export class Loan extends Model {
   @Column
   clientDateOfBirth: Date;
 
+  @ForeignKey(() => UF)
   @Column({
     references: {
       model: UF,
@@ -17,6 +26,9 @@ export class Loan extends Model {
     },
   })
   ufId: number;
+
+  @BelongsTo(() => UF)
+  uf: UF;
 
   @Column
   amount: number;
@@ -29,4 +41,7 @@ export class Loan extends Model {
 
   @Column
   totalInterest: number;
+
+  @HasMany(() => Installment)
+  installments: Installment[];
 }

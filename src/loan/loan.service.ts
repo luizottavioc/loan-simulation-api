@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Loan } from 'database/models/loan.model';
 import { CreateLoanDto } from './dto/create-loan.dto';
 import { Installment } from 'database/models/installment.model';
+import { UF } from 'database/models/uf.model';
 
 @Injectable()
 export class LoanService {
@@ -16,7 +17,10 @@ export class LoanService {
   public static MIN_LOAN_AMOUNT = 5000000;
 
   async findAll(): Promise<Loan[]> {
-    return this.loanModel.findAll();
+    return this.loanModel.findAll({
+      include: [UF, Installment],
+      order: [['createdAt', 'DESC']],
+    });
   }
 
   async create(createLoanDto: CreateLoanDto): Promise<Loan> {
