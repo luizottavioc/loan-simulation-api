@@ -1,73 +1,64 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Loan Simulation - API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Projeto
+Este projeto consiste na API back-end desenvolvida em NestJS que faz parte do projeto "loan-simulation". Esta API serve como o motor que alimenta a aplicação Web, permitindo que pessoas físicas efetivem empréstimos com base no estado fornecido e nas taxas de juros específicas da região. A API é projetada para ser eficiente, escalável e fácil de manter, fornecendo endpoints que suportam todas as funcionalidades da aplicação de simulação de empréstimos. O repositório da interface front-end pode ser acessado através do seguinte link: [loan-simulation-gui](https://github.com/luizottavioc/loan-simulation-gui)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Tecnologias
 
-## Description
+Este projeto foi construído utilizando as seguintes tecnologias:
+- **NestJS**;
+- **TypeScript**;
+- **Sequelize**;
+- **PostgreSQL**;
+- **Docker**.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Estrutura de Pastas
+A estrutura do projeto é organizada da seguinte forma dentro da pasta `/src`:
+- **/database**: Responsável pela configuração do banco de dados utilizando Sequelize. Aqui estão centralizadas as migrações e seeds, permitindo a criação e preenchimento do banco de dados com dados iniciais.
+- **/src**: Contém o código-fonte dos módulos principais da API:
+  - **/installment**: Módulo responsável por gerenciar as parcelas dos empréstimos, incluindo DTOs de validação, entidades (models), controladores (controllers), serviços (services) e o módulo em si.
+  - **/loan**: Módulo que gerencia os empréstimos, com as mesmas estruturas organizacionais (DTO, entity, controller, service, module).
+  - **/uf**: Módulo para gerenciamento das unidades federativas (estados), controlando suas taxas de juros e outras funcionalidades relevantes.
+  - **/main**: Configurações principais da aplicação, como o registro do CORS e os pipes de validação para DTOs.
+- **/tests**: Diretório dedicado aos testes automatizados da aplicação, garantindo a confiabilidade e a estabilidade do código ao longo do tempo.
 
-## Installation
+## Deploy Local
+Para rodar a API localmente, siga os passos abaixo:
 
-```bash
-$ npm install
-```
+### Dependências
+- **Node.js**: v21.7.3
+- **npm**: v10.5.0
+- **Docker**: v24.0.7
+- **Docker Compose**: v2.21.0
 
-## Running the app
+### Passos para Deploy Local
+1. **Clone o repositório**:
+    ```bash
+    git clone git@github.com:luizottavioc/loan-simulation-api.git
+    ```
 
-```bash
-# development
-$ npm run start
+2. **Configure o ambiente**:
+    Copie o arquivo `.env.example` e renomeie-o para `.env`. Este arquivo conterá as variáveis de ambiente necessárias para a aplicação, como as credenciais de acesso ao banco de dados.
+    ```bash
+    cp .env.example .env
+    ```
 
-# watch mode
-$ npm run start:dev
+3. **Suba os containers com Docker**:
+    Utilize o Docker Compose para iniciar os serviços do banco de dados e outras dependências necessárias.
+    ```bash
+    docker compose up -d
+    ```
 
-# production mode
-$ npm run start:prod
-```
+4. **Instale as dependências**:
+    Navegue até a pasta do projeto e execute o comando abaixo para instalar todas as dependências necessárias:
+    ```bash
+    npm install
+    ```
 
-## Test
+5. **Inicie o servidor de desenvolvimento**:
+    Após configurar o ambiente e iniciar o banco de dados, execute o comando abaixo para iniciar o servidor de desenvolvimento:
+    ```bash
+    npm run start:dev
+    ```
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+    O servidor estará disponível na porta `8989` por padrão, onde a API poderá ser acessada.
