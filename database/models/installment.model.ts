@@ -1,5 +1,5 @@
 import { Table, Column, Model } from 'sequelize-typescript';
-import { Loan } from 'src/loan/loan.model';
+import { Loan } from 'database/models/loan.model';
 
 @Table
 export class Installment extends Model {

@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
 import { SequelizeModuleOptions } from '@nestjs/sequelize';
 
-import { UF } from 'src/uf/uf.model';
-import { Loan } from 'src/loan/loan.model';
-import { Installment } from 'src/installment/installment.model';
+import { UF } from 'database/models/uf.model';
+import { Loan } from 'database/models/loan.model';
+import { Installment } from 'database/models/installment.model';
 
 dotenv.config();
 

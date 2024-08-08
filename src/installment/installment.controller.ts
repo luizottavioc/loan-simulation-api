@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { InstallmentService } from './installment.service';
-import { Installment } from './installment.model';
+import { Installment } from '../../database/models/installment.model';
 
 @Controller('installment')
 export class InstallmentController {

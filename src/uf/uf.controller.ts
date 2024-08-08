@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { UFService } from './uf.service';
-import { UF } from './uf.model';
+import { UF } from '../../database/models/uf.model';
 
 @Controller('uf')
 export class UFController {

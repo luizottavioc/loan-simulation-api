@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 import { Table, Column, Model } from 'sequelize-typescript';
-import { UF } from 'src/uf/uf.model';
+import { UF } from 'database/models/uf.model';
 
 @Table
 export class Loan extends Model {

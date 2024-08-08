@@ -1,5 +1,5 @@
 import { Seeder, OnSeederInit } from 'nestjs-sequelize-seeder';
-import { UF } from './uf.model';
+import { UF } from '../../database/models/uf.model';
 
 @Seeder({
   model: UF,

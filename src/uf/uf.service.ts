@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { UF } from './uf.model';
+import { UF } from '../../database/models/uf.model';
 
 @Injectable()
 export class UFService {

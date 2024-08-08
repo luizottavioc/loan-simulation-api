@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { LoanService } from './loan.service';
-import { Loan } from './loan.model';
+import { Loan } from '../../database/models/loan.model';
 
 @Controller('loan')
 export class LoanController {

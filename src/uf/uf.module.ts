@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { UF } from './uf.model';
+import { UF } from '../../database/models/uf.model';
 import { UFService } from './uf.service';
 import { UFController } from './uf.controller';
-import { UFSeeder } from './uf.seeder';
+import { UFSeeder } from '../../database/seeds/uf.seeder';
 import { SeederModule } from 'nestjs-sequelize-seeder';
 
 @Module({
