@@ -9,7 +9,7 @@ export class Installment extends Model {
       key: 'id',
     },
   })
-  idLoan: number;
+  loanId: number;
 
   @Column
   balanceDue: number;
