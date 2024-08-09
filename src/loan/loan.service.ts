@@ -35,6 +35,13 @@ export class LoanService {
       installments,
     } = createLoanDto;
 
+    const treatedClientCPF = clientCPF.replace(/\D/g, '');
+    if (treatedClientCPF.length != 11) {
+      throw new BadRequestException(
+        'Client CPF is malformed. Please check your data.',
+      );
+    }
+
     if (amount < LoanService.MIN_LOAN_AMOUNT) {
       throw new BadRequestException(
         `Loan amount is too small. Please check your data.`,

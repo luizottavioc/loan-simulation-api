@@ -10,6 +10,7 @@ import {
   MinLength,
   ValidateNested,
   ArrayMinSize,
+  MaxDate,
 } from 'class-validator';
 import { LoanEntity } from '../entity/loan.entity';
 import { Type } from 'class-transformer';
@@ -22,6 +23,7 @@ export class CreateLoanDto extends LoanEntity {
   clientCPF: string;
 
   @IsDateString()
+  @MaxDate(new Date())
   clientDateOfBirth: Date;
 
   @IsNumber()
